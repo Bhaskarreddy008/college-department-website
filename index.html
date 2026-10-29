@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College Department Website</title>
+
+    <style>
+
+        /* =========================
+           GENERAL STYLES
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            background-color: #f8f9ff;
+        }
+
+
+        /* =========================
+           NAVIGATION BAR
+        ========================= */
+
+        header {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            max-width: 1200px;
+            height: 70px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 30px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffe600;
+        }
+
+
+        /* =========================
+           HOME SECTION
+        ========================= */
+
+        .home {
+            min-height: 90vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(106,17,203,0.9),
+                    rgba(37,117,252,0.85)
+                );
+
+            padding: 50px 20px;
+        }
+
+        .home-content {
+            max-width: 850px;
+        }
+
+        .home h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+        }
+
+        .home h1 span {
+            color: #ffe600;
+        }
+
+        .home p {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .home-button {
+            display: inline-block;
+
+            padding: 14px 30px;
+
+            background-color: #ffe600;
+            color: #222;
+
+            text-decoration: none;
+
+            font-weight: bold;
+            font-size: 17px;
+
+            border-radius: 30px;
+
+            transition: 0.3s;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .home-button:hover {
+            background-color: white;
+            color: #6a11cb;
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           FACULTY SECTION
+        ========================= */
+
+        .faculty {
+            padding: 80px 30px;
+            text-align: center;
+
+            background: linear-gradient(
+                180deg,
+                #fff7fb,
+                #eef5ff
+            );
+        }
+
+        .section-title {
+            font-size: 40px;
+            color: #6a11cb;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            color: #666;
+            font-size: 17px;
+            margin-bottom: 45px;
+        }
+
+        .faculty-container {
+            max-width: 1100px;
+            margin: auto;
+
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+
+            flex-wrap: wrap;
+        }
+
+        .faculty-card {
+            width: 300px;
+
+            background: white;
+
+            padding: 30px 20px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+            transition: 0.4s;
+
+            border-top: 6px solid #6a11cb;
+        }
+
+        .faculty-card:nth-child(2) {
+            border-top-color: #ff4081;
+        }
+
+        .faculty-card:nth-child(3) {
+            border-top-color: #00b894;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.18);
+        }
+
+        .faculty-image {
+            width: 110px;
+            height: 110px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 55px;
+
+            background: linear-gradient(
+                135deg,
+                #d9a7ff,
+                #a1c4fd
+            );
+        }
+
+        .faculty-card:nth-child(2) .faculty-image {
+            background: linear-gradient(
+                135deg,
+                #ff9a9e,
+                #fad0c4
+            );
+        }
+
+        .faculty-card:nth-child(3) .faculty-image {
+            background: linear-gradient(
+                135deg,
+                #84fab0,
+                #8fd3f4
+            );
+        }
+
+        .faculty-card h3 {
+            color: #6a11cb;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .faculty-card:nth-child(2) h3 {
+            color: #ff4081;
+        }
+
+        .faculty-card:nth-child(3) h3 {
+            color: #00a884;
+        }
+
+        .faculty-card p {
+            color: #666;
+            margin: 7px 0;
+        }
+
+
+        /* =========================
+           CONTACT SECTION
+        ========================= */
+
+        .contact {
+            padding: 80px 30px;
+
+            background: linear-gradient(
+                135deg,
+                #fff0f6,
+                #e8f3ff
+            );
+        }
+
+        .contact-title {
+            text-align: center;
+            font-size: 40px;
+            color: #2575fc;
+            margin-bottom: 45px;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: auto;
+
+            display: flex;
+            gap: 50px;
+
+            align-items: stretch;
+        }
+
+        .contact-info {
+            flex: 1;
+
+            padding: 35px;
+
+            color: white;
+
+            border-radius: 20px;
+
+            background: linear-gradient(
+                135deg,
+                #6a11cb,
+                #2575fc
+            );
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .contact-info h3 {
+            font-size: 27px;
+            margin-bottom: 25px;
+        }
+
+        .contact-info p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .contact-icon {
+            font-size: 25px;
+            margin-right: 10px;
+        }
+
+
+        /* =========================
+           CONTACT FORM
+        ========================= */
+
+        .contact-form {
+            flex: 1;
+
+            background-color: white;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .contact-form h3 {
+            color: #6a11cb;
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 15px;
+
+            border: 2px solid #ddd;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 8px rgba(106,17,203,0.2);
+        }
+
+        .contact-form textarea {
+            resize: none;
+        }
+
+        .submit-button {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: linear-gradient(
+                90deg,
+                #6a11cb,
+                #2575fc
+            );
+
+            color: white;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 15px rgba(37,117,252,0.3);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: linear-gradient(
+                90deg,
+                #6a11cb,
+                #2575fc
+            );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        footer p {
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            nav {
+                height: auto;
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+            .home h1 {
+                font-size: 35px;
+            }
+
+            .home p {
+                font-size: 16px;
+            }
+
+            .section-title,
+            .contact-title {
+                font-size: 32px;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .contact-info,
+            .contact-form {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                🎓 CSE Department
+            </div>
+
+            <ul>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#faculty">Faculty</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section id="home" class="home">
+
+        <div class="home-content">
+
+            <h1>
+                Welcome to
+                <span>Computer Science</span>
+                Department
+            </h1>
+
+            <p>
+                We provide quality education, innovative learning,
+                and practical skills to prepare students for successful
+                careers in the world of technology.
+            </p>
+
+            <a href="#faculty" class="home-button">
+                Meet Our Faculty
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FACULTY
+    ========================== -->
+
+    <section id="faculty" class="faculty">
+
+        <h2 class="section-title">
+            👨‍🏫 Our Faculty
+        </h2>
+
+        <p class="section-description">
+            Meet our experienced and dedicated faculty members.
+        </p>
+
+
+        <div class="faculty-container">
+
+
+            <!-- Faculty 1 -->
+
+            <div class="faculty-card">
+
+                <div class="faculty-image">
+                    👨‍🏫
+                </div>
+
+                <h3>
+                    Dr. Rajesh Kumar
+                </h3>
+
+                <p>
+                    <strong>Head of Department</strong>
+                </p>
+
+                <p>
+                    Ph.D. in Computer Science
+                </p>
+
+                <p>
+                    15+ Years Experience
+                </p>
+
+            </div>
+
+
+            <!-- Faculty 2 -->
+
+            <div class="faculty-card">
+
+                <div class="faculty-image">
+                    👩‍🏫
+                </div>
+
+                <h3>
+                    Dr. Priya Sharma
+                </h3>
+
+                <p>
+                    <strong>Associate Professor</strong>
+                </p>
+
+                <p>
+                    Artificial Intelligence
+                </p>
+
+                <p>
+                    10+ Years Experience
+                </p>
+
+            </div>
+
+
+            <!-- Faculty 3 -->
+
+            <div class="faculty-card">
+
+                <div class="faculty-image">
+                    👨‍🏫
+                </div>
+
+                <h3>
+                    Mr. Arun Kumar
+                </h3>
+
+                <p>
+                    <strong>Assistant Professor</strong>
+                </p>
+
+                <p>
+                    Web Technologies
+                </p>
+
+                <p>
+                    7+ Years Experience
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact" class="contact">
+
+        <h2 class="contact-title">
+            📞 Contact Us
+        </h2>
+
+
+        <div class="contact-container">
+
+
+            <!-- Contact Information -->
+
+            <div class="contact-info">
+
+                <h3>
+                    Get In Touch
+                </h3>
+
+                <p>
+                    📍 <strong>Address</strong><br>
+                    Department of Computer Science & Engineering<br>
+                    ABC College of Engineering<br>
+                    Hyderabad, Telangana
+                </p>
+
+                <p>
+                    📧 <strong>Email</strong><br>
+                    cse@abccollege.edu
+                </p>
+
+                <p>
+                    📱 <strong>Phone</strong><br>
+                    +91 98765 43210
+                </p>
+
+                <p>
+                    🕐 <strong>Working Hours</strong><br>
+                    Monday - Friday: 9:00 AM - 5:00 PM
+                </p>
+
+            </div>
+
+
+            <!-- Contact Form -->
+
+            <div class="contact-form">
+
+                <h3>
+                    Send Us a Message
+                </h3>
+
+                <form>
+
+                    <input
+                        type="text"
+                        placeholder="Enter Your Name"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        placeholder="Enter Your Email"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        placeholder="Enter Subject"
+                        required
+                    >
+
+                    <textarea
+                        rows="5"
+                        placeholder="Write Your Message"
+                        required
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                    >
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 CSE Department | College Department Website
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
